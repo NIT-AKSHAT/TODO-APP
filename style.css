@@ -1,0 +1,351 @@
+
+/* ---------- Global styles ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(0, 232, 179, 0.075),
+            transparent 42%
+        ),
+        #090c0c;
+    color: white;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Main container ---------- */
+main {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 40px);
+    max-width: 790px;
+    margin: 70px auto 30px;
+}
+
+/* ---------- Header ---------- */
+.eyebrow {
+    order: 1;
+    text-align: center;
+    color: #00e8b3;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin: 15px 0 18px;
+    text-transform: uppercase;
+}
+
+main > h1 {
+    order: 2;
+    text-align: center;
+    font-size: 76px;
+    font-weight: 900;
+    letter-spacing: -8px;
+    margin: 18px 0 0;
+}
+
+h1 span {
+    color: #00e8b3;
+}
+
+.subtitle {
+    order: 3;
+    text-align: center;
+    color: #8c9898;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 18px 0 0;
+}
+
+/* ---------- Input area ---------- */
+.input-container {
+    order: 4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 8px 9px 8px 20px;
+    background-color: #101213;
+    border: 1px solid #343a3a;
+    border-radius: 50px;
+}
+
+#to-do {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 5px;
+    font: inherit;
+    font-size: 16px;
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+#to-do::placeholder {
+    color: #727b7b;
+}
+
+#to-do:focus-visible {
+    outline: none;
+}
+
+#add-btn {
+    flex-shrink: 0;
+    padding: 17px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: #00e8b3;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+#add-btn:hover {
+    filter: brightness(1.1);
+}
+
+#add-btn:focus-visible,
+.delete-btn:focus-visible,
+#clear-all:focus-visible {
+    outline: 2px solid #00e8b3;
+    outline-offset: 3px;
+}
+
+/* ---------- Task footer ---------- */
+.task-footer {
+    order: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    min-height: 40px;
+}
+
+#task-count {
+    color: #8c9898;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#clear-all {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #858d8d;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#clear-all:hover {
+    color: #00e8b3;
+}
+
+/* ---------- Task list ---------- */
+#task-list {
+    order: 6;
+    min-width: 0;
+}
+
+.tasks {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    margin: 10px 0;
+    padding: 15px 12px;
+    background-color: #171919;
+    border-radius: 16px;
+}
+
+.tasks span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-weight: 400;
+}
+
+.task-check {
+    appearance: none;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border: 2px solid #00e8b3;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.1s ease,
+        transform 0.15s ease;
+}
+
+.task-check:checked {
+    background-color: #00e8b3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12l4 4L19 6' fill='none' stroke='%23071916' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+
+.delete-btn {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    color: #858d8d;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    color: #ff7777;
+    background-color: #292020;
+}
+
+/* ---------- Page footer ---------- */
+.page-footer {
+    order: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 17px 4px 0;
+    color: #727b7b;
+    font: 10px monospace;
+    border-top: 1px solid #222727;
+}
+
+.saved-status,
+.page-footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.span-dot {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #00e8b3;
+    box-shadow: 0 0 10px #00e8b377;
+}
+
+i {
+    font-style: normal;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 768px) {
+    main {
+        width: calc(100% - 32px);
+        margin-top: 50px;
+    }
+
+    main > h1 {
+        font-size: 64px;
+        letter-spacing: -5px;
+    }
+
+    .input-container {
+        padding-left: 14px;
+    }
+
+    #add-btn {
+        padding: 15px 22px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+    main {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    main > h1 {
+        font-size: 50px;
+        letter-spacing: -3px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .input-container {
+        gap: 6px;
+        padding: 6px 6px 6px 12px;
+    }
+
+    #to-do {
+        padding: 12px 2px;
+        font-size: 14px;
+    }
+
+    #add-btn {
+        padding: 13px 16px;
+        font-size: 13px;
+    }
+
+    .task-footer {
+        margin-top: 14px;
+    }
+
+    .tasks {
+        gap: 9px;
+        padding: 12px 10px;
+    }
+
+    .delete-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .page-footer {
+        font-size: 10px;
+    }
+}
+
+/* ---------- Small mobile ---------- */
+@media (max-width: 360px) {
+    main > h1 {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+
+    .input-container {
+        padding-left: 10px;
+    }
+
+    #add-btn {
+        padding: 12px;
+    }
+
+    .tasks {
+        gap: 7px;
+    }
+}

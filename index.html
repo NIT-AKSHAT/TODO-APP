@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">YOUR SPACE · YOUR PACE</p>
+      <h1>TODO <span>APP</span></h1>
+      <p class="subtitle">Make room for what matters.</p>
+      <div class="input-container">
+        <input
+          id="to-do"
+          type="text"
+          placeholder="Write anything and hit enter to add."
+        />
+        <button id="add-btn">ADD +</button>
+      </div>
+
+      <div class="task-footer">
+        <span id="task-count">0 TASKS</span>
+        <button id="clear-all">Clear completed</button>
+      </div>
+
+      <div id="task-list"></div>
+
+      <div class="page-footer">
+        <span class="saved-status">
+          <i class="span-dot"></i>
+          Saved on this device
+        </span>
+        <span id="progress-label">0% complete</span>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
